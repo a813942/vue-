@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyHtml.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script src="vue.js"></script>
+<script>
+  window.onload=function(){
+   var c = new Vue({
+     el:'.box',
+     data:{
+       msg:'welcome vue',
+       msg2:'welcome',
+       msg3:[1,2,3,4,5],
+       msg4:{a:'1',b:'2',c:'3'}
+     },
+     methods:{
+      show:function(){
+      	alert(1)
+      }
+     }
+   });
+  };
+</script>
+  </head>
+  
+  <body>
+    <div class="box">
+    	{{msg}}
+    	<br>
+     <input type="text" value="msg">
+     <br>
+     <input type="text" v-model="msg">
+     <br>
+     <input type="text" v-model="msg2">
+     <br>
+     <input type="text" v-model="msg3">
+     <br>
+     
+     <!-- v-for="name in 数组"需循环展示 -->
+     
+     <ul>
+      <li v-for="(k,v) in msg4">
+     	{{k}} {{v}}
+      </li>
+     </ul>
+     
+     <ul>
+     	<input type="button" value="按钮" v-on:click="show()">
+     </ul>
+    </div>
+  </body>
+</html>
