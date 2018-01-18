@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day02.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script src="vue.js"></script>
+<script>
+  window.onload=function(){
+   var c = new Vue({
+     el:'#box',
+     data:{//数据
+       a:true
+     }
+    
+   });
+  };
+</script>
+  </head>
+
+  <body>
+    <div id="box">
+      <input type="button" value="按钮" v-on:click="a=false">
+      <div style="width:100px;height:100px;background:red" v-show="a">
+        
+      </div>
+    </div>
+  </body>
+</html>

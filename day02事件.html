@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day02.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script src="vue.js"></script>
+<script>
+  window.onload=function(){
+   var c = new Vue({
+     el:'#box',
+     data:{//数据
+       msg:'welcome vue',
+       msg2:'welcome',
+       msg3:[1,2,3,4,5],
+       msg4:{a:'1',b:'2',c:'3'}
+     },
+     methods:{
+        add:function(){
+          this.msg3.push('6');
+        }
+       }
+   });
+  };
+</script>
+  </head>
+
+  <body>
+    <div id="box">
+      <input type="button" value="按钮" v-on:click="add()">
+      <br>
+      <ul>
+        <li v-for="v in msg3">
+          {{v}}
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

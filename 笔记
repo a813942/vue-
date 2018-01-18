@@ -1,0 +1,16 @@
+循环
+    v-for="name in arr"
+        {{$index}}
+
+    v-for="name in json"
+        {{$index}}    {{$key}}
+
+    v-for="(k,v) in json"
+
+
+事件
+    click:点击    mouseover：光标移到   mouseout：鼠标移出  mousedown：点击
+    dblclick：双击 
+
+显示隐藏：
+        v-show="true/flase"
