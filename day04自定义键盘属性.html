@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day03.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script src="vue.js"></script>
+<script>
+  // 自定义键盘cter键码为17
+    Vue.directive('on').keyCodes.ctrl=17;
+    window.onload=function(){
+   var c = new Vue({
+     data:{
+
+    },
+    methods:{
+      show:function(){
+        alert(1)
+      }
+    }
+    
+  }).$mount('#box');
+  
+  };
+  
+</script>
+  </head>
+  
+  <body>
+    <div id="box">
+      <input type="text" @keydown.ctrl="show">
+      
+    </div>
+  </body>
+</html>

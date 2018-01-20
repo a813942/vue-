@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day01.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script src="vue.js"></script>
+
+<script>
+  window.onload=function(){
+    var Aaa=Vue.extend({
+      data(){
+        return{
+          msg:'标题'
+        };
+      },
+      methods:{
+        chang(){
+          this.msg='我真是标题'
+        }
+      },
+      template:'<h3 @click="chang">{{msg}}</h3>'
+    })
+    //第一个参数要改那个，第二个参数改成什么，这个是全局组件
+    // Vue.component('aaa',Aaa);
+  
+
+   var c = new Vue({
+     el:'.box',
+     data:{
+      bSign:true
+     },
+     components:{//局部组件
+       aaa:Aaa
+     }
+   });
+  };
+</script>
+  </head>
+  
+  <body>
+    <div class="box">
+      <aaa></aaa>
+    </div>
+  </body>
+</html>

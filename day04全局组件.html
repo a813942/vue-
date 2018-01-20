@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day01.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script src="vue.js"></script>
+
+<script>
+  window.onload=function(){
+    var Aaa=Vue.extend({
+      template:'<h3>标题</h3>'
+    })
+    //第一个参数要改那个，第二个参数改成什么
+    Vue.component('aaa',Aaa);
+
+   var c = new Vue({
+     el:'.box',
+     data:{
+      bSign:true
+     }
+   });
+  };
+</script>
+  </head>
+  
+  <body>
+    <div class="box">
+      <aaa></aaa>
+    </div>
+  </body>
+</html>

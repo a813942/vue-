@@ -80,3 +80,136 @@ get:
 		},function(res){
 		    alert(res.status);
 		});
+
+
+    jsonp:可以让网页从别的域名（网站）那获取资料，即跨域读取数据
+
+    .then:then()方法是异步执行,就是当.then()前的方法执行完后再执行then()内部的程序
+
+
+vue生命周期:
+	钩子函数:
+
+	created	->   实例已经创建	
+	beforeCompile	->   编译之前
+	compiled	->   编译之后
+	ready		->   插入到文档中	
+
+	beforeDestroy	->   销毁之前
+	destroyed	->   销毁之后
+
+计算属性的使用:
+	computed:{
+		b:function(){	//默认调用get
+			return 值
+		}
+	}
+	--------------------------
+	computed:{
+		b:{
+			get:
+			set:
+		}
+	}
+
+	* computed里面可以放置一些业务逻辑代码，一定记得return
+
+
+	vue实例简单方法:
+	vm.$el	->  就是元素
+	vm.$data  ->  就是data
+	vm.$mount ->  手动挂在vue程序
+	
+	vm.$options	->   获取自定义属性
+	vm.$destroy	->   销毁对象
+
+	vm.$log();	->  查看现在数据的状态
+
+
+过滤器:
+	vue提供过滤器:
+		capitalize	uppercase	currency....
+
+		debounce	配合事件，延迟执行
+	数据配合使用过滤器:
+		limitBy	限制几个
+		limitBy 参数(取几个)
+		limitBy 取几个  从哪开始
+
+		filterBy	过滤数据
+		filterBy ‘谁’
+
+		orderBy	排序
+		orderBy 谁 1/-1
+			1  -> 正序
+			2  -> 倒序
+
+	自定义过滤器:  model ->过滤 -> view
+		Vue.filter(name,function(input){
+			
+		});
+
+
+监听数据变化:
+	vm.$el/$mount/$options/....
+
+	vm.$watch(name,fnCb);  //浅度
+	vm.$watch(name,fnCb,{deep:true});  //深度监视 
+
+
+vue组件:
+	组件: 一个大对象
+定义一个组件:
+1. 全局组件
+var Aaa=Vue.extend({
+	template:'<h3>我是标题3</h3>'
+});
+
+Vue.component('aaa',Aaa);
+
+	*组件里面放数据:
+		data必须是函数的形式，函数必须返回一个对象(json)
+2. 局部组件
+	放到某个组件内部
+var vm=new Vue({
+	el:'#box',
+	data:{
+		bSign:true
+	},
+	components:{ //局部组件
+		aaa:Aaa
+	}
+});
+--------------------------------------
+另一种编写方式:
+	Vue.component('my-aaa',{
+		template:'<strong>好</strong>'
+	});
+
+	var vm=new Vue({
+		el:'#box',
+		components:{
+			'my-aaa':{
+				template:'<h2>标题2</h2>'
+			}
+		}
+	});
+-----------------------------------
+配合模板:
+	1. template:'<h2 @click="change">标题2->{{msg}}</h2>'
+
+	2. 单独放到某个地方
+		a). <script type="x-template" id="aaa">
+			<h2 @click="change">标题2->{{msg}}</h2>
+		</script>
+		b). <template id="aaa">
+			<h1>标题1</h1>
+			<ul>
+				<li v-for="val in arr">
+					{{val}}
+				</li>
+			</ul>
+		</template>
+-----------------------------------
+动态组件:
+	<component :is="组件名称"></component>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day01.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script src="vue.js"></script>
+<style>
+  #div1{
+    width: 100px;height: 100px;background: red;
+  }
+  .fade-transition{
+    transition: 1s all ease;
+  }
+  /* 进入 */
+  .fade-enter{
+    opacity:0;
+  }
+  /* 离开 */
+  .fade-leave{
+    opacity:0;
+    transform:translateX(200px);
+  }
+</style>
+<script>
+  window.onload=function(){
+   var c = new Vue({
+     el:'.box',
+     data:{
+      bSign:true
+     },
+     methods:{
+      //  toggle:function(){
+      //    alert(1)
+      //  }
+        toggle(){
+          this.bSign=!this.bSign
+        }
+     }
+   });
+  };
+</script>
+  </head>
+  
+  <body>
+    <div class="box">
+      <input type="button" value="按钮" @click="toggle">
+      <div id="div1" v-show="bSign" transition="fade"></div>
+    </div>
+  </body>
+</html>

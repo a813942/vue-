@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day03.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script src="vue.js"></script>
+<script>
+    
+    window.onload=function(){
+   var c = new Vue({
+     data:{
+      arr:['aaa','bbb','ccc','ddd']
+    },
+    methods:{
+      add:function(){
+        this.arr.push('ppp')
+      }
+    }
+    
+  }).$mount('#box');
+  
+  };
+  
+</script>
+  </head>
+  
+  <body>
+    <div id="box">
+      <input type="button" value="添加" @click="add">
+      <ul v-for="va in arr" track-by="$index">
+        {{va}}
+      </ul>
+    </div>
+  </body>
+</html>

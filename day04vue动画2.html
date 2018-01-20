@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day01.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script src="vue.js"></script>
+<link rel="stylesheet" href="lib/animate.css">
+<style>
+  .box{
+    width: 400px;
+    margin:0 auto;
+  }
+  #div1{
+    width: 100px;height: 100px;background: red;
+  }
+  
+</style>
+<script>
+  window.onload=function(){
+   var c = new Vue({
+     el:'.box',
+     data:{
+      bSign:true
+     },
+     methods:{
+      //  toggle:function(){
+      //    alert(1)
+      //  }
+        toggle(){
+          this.bSign=!this.bSign
+        }
+     },
+     transitions:{//定义所有的动画名称
+      bounce:{
+        enterClass:'zoomInRight',
+        leaveClass:'zoomOutRight'
+      }
+     }
+   });
+  };
+</script>
+  </head>
+  
+  <body>
+    <div class="box">
+      <input type="button" value="按钮" @click="toggle">
+      <div id="div1" class="animated" v-show="bSign" transition="bounce"></div>
+    </div>
+  </body>
+</html>
